@@ -10506,7 +10506,7 @@
                     if (this.isBuilt)
                         return this;
                     var t = this;
-                                        t.url = "https://githubpagesstuff.github.io/Documentation/docs" + t.url.substring(39, t.url.length) + ".json"
+                                        t.url = "https://githubpagesstuff.github.io/Documentation/avatar/docs" + t.url.substring(39, t.url.length) + ".json"
 
                     this.spec ? this.progress("fetching resource list; Please wait.") : this.progress("fetching resource list: " + this.url + "; Please wait.");
                     var n = {
