@@ -10506,10 +10506,8 @@
                     if (this.isBuilt)
                         return this;
                     var t = this;
-                    //t.url = "file:///C:/My%20Web%20Sites/aabtesting/abtesting.sitetest3.robloxlabs.com/" + t.url.substring(15, t.url.length) + ".json"
-                    //t.url = "https://githubpagesstuff.github.io/Documentation/docs" + t.url.substring(39, t.url.length) + ".json"
-                    console.log(t.url)
-                    t.url = t.url + ".json"
+                                        t.url = "https://githubpagesstuff.github.io/Documentation/docs" + t.url.substring(39, t.url.length) + ".json"
+
                     this.spec ? this.progress("fetching resource list; Please wait.") : this.progress("fetching resource list: " + this.url + "; Please wait.");
                     var n = {
                         useJQuery: this.useJQuery,
@@ -10523,7 +10521,7 @@
                         },
                         on: {
                             error: function(e) {
-                                return "http" !== t.url.substring(0, 4) ? t.fail("Please specify the protocol for " + t.url) : !e.errObj || "ECONNABORTED" !== e.errObj.code && e.errObj.message.indexOf("timeout") === -1 ? 0 === e.status ? t.fail("Can't read from server.  It may not have the appropriate access-control-origin settings.") : 405 === e.status ? t.fail("Can't read swagger JSON from " + t.url) : t.fail(e.status + " : " + e.statusText + " " + t.url) : t.fail("Request timed out after " + t.fetchSpecTimeout + "ms")
+                                return "http" !== t.url.substring(0, 4) ? t.fail("Please specify the protocol for " + t.url) : !e.errObj || "ECONNABORTED" !== e.errObj.code && e.errObj.message.indexOf("timeout") === -1 ? 0 === e.status ? t.fail("Can't read from server.  It may not have the appropriate access-control-origin settings.") : 404 === e.status ? t.fail("Can't read swagger JSON from " + t.url) : t.fail(e.status + " : " + e.statusText + " " + t.url) : t.fail("Request timed out after " + t.fetchSpecTimeout + "ms")
                             },
                             response: function(e) {
                                 var n = e.obj;
