@@ -10522,7 +10522,7 @@
                         },
                         on: {
                             error: function(e) {
-                                return "file" !== t.url.substring(0, 4) ? t.fail("Please specify the protocol for " + t.url) : !e.errObj || "ECONNABORTED" !== e.errObj.code && e.errObj.message.indexOf("timeout") === -1 ? 0 === e.status ? t.fail("Can't read from server.  It may not have the appropriate access-control-origin settings.") : 405 === e.status ? t.fail("Can't read swagger JSON from " + t.url) : t.fail(e.status + " : " + e.statusText + " " + t.url) : t.fail("Request timed out after " + t.fetchSpecTimeout + "ms")
+                                return "http" !== t.url.substring(0, 4) ? t.fail("Please specify the protocol for " + t.url) : !e.errObj || "ECONNABORTED" !== e.errObj.code && e.errObj.message.indexOf("timeout") === -1 ? 0 === e.status ? t.fail("Can't read from server.  It may not have the appropriate access-control-origin settings.") : 405 === e.status ? t.fail("Can't read swagger JSON from " + t.url) : t.fail(e.status + " : " + e.statusText + " " + t.url) : t.fail("Request timed out after " + t.fetchSpecTimeout + "ms")
                             },
                             response: function(e) {
                                 var n = e.obj;
