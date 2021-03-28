@@ -10509,6 +10509,7 @@
                     //t.url = "file:///C:/My%20Web%20Sites/aabtesting/abtesting.sitetest3.robloxlabs.com/" + t.url.substring(15, t.url.length) + ".json"
                     //t.url = t.url.substring(7, t.url.length) + ".json"
                     console.log(t.url)
+                    t.url = t.url + ".json"
                     this.spec ? this.progress("fetching resource list; Please wait.") : this.progress("fetching resource list: " + this.url + "; Please wait.");
                     var n = {
                         useJQuery: this.useJQuery,
