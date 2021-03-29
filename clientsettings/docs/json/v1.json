@@ -4,7 +4,7 @@
         "version": "v1",
         "title": "ClientSettings Api v1"
     },
-    "host": "clientsettings.sitetest3.robloxlabs.com",
+    "host": "clientsettings.roblox.com",
     "schemes": ["https"],
     "paths": {
         "/v1/client-version/{binaryType}": {

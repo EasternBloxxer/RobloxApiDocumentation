@@ -4,7 +4,7 @@
 		"version": "v1",
 		"title": "Metrics Api v1"
 	},
-	"host": "metrics.sitetest4.robloxlabs.com",
+	"host": "metrics.roblox.com",
 	"schemes": ["https"],
 	"paths": {
 		"/v1/games/join-rate": {

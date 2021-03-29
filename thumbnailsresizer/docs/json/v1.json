@@ -4,7 +4,7 @@
       "version": "v1",
       "title": "ThumbnailsResizer Api v1"
     },
-    "host": "thumbnailsresizer.sitetest3.robloxlabs.com",
+    "host": "thumbnailsresizer.roblox.com",
     "schemes": [
       "https"
     ],

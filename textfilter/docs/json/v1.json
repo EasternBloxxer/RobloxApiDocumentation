@@ -4,7 +4,7 @@
       "version": "v2",
       "title": "TextFilter Api v2"
     },
-    "host": "textfilter.sitetest3.robloxlabs.com",
+    "host": "textfilter.roblox.com",
     "schemes": [
       "https"
     ],
