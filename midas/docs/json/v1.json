@@ -6,8 +6,8 @@
 	"paths": {
 		"/v1/GetUri": {
 			"post": {
-				"tags": ["CSRF"],
-				"summary": "Get the CSRF token based on IP or AuthToken.",
+				"tags": ["Files"],
+				"summary": "Get file URL given hash.",
 				"consumes": [],
 				"produces": ["application/json", "text/json"],
 				"parameters": [{
@@ -41,7 +41,7 @@
 			"description": "A model containing information on whether or not the api is up.",
 			"type": "object",
 			"properties": {
-				"message": {
+				"Hash": {
 					"description": "Hash",
 					"type": "string",
 					"example": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
