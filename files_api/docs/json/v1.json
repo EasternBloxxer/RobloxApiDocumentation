@@ -20,12 +20,12 @@
           "name": "data",
           "in": "body",
           "required": true,
-          "schema": {"$ref": "#/definitions/Mfd.Csrf.Api.Models.Request"}
+          "schema": {"$ref": "#/definitions/Roblox.Files.Service.Models.Request"}
         }],
 				"responses": {
 					"200": {
 						"description": "OK",
-						"schema": { "$ref": "#/definitions/Mfd.Files.Api.Models.Response" }
+						"schema": { "$ref": "#/definitions/Roblox.Files.Service.Models.Response" }
 					}
 				},
 				"properties": {
@@ -37,7 +37,7 @@
 		}
 	},
 	"definitions": {
-		"Mfd.Csrf.Api.Models.Request": {
+		"Roblox.Files.Service.Models.Request": {
 			"description": "A model containing information on whether or not the api is up.",
 			"type": "object",
 			"properties": {
@@ -48,7 +48,7 @@
 				}
 			}
 		},
-    "Mfd.Files.Api.Models.Response": {
+    "Roblox.Files.Service.Models.Response": {
 			"description": "Mirror of System.Web.Http.Results.RedirectResult",
 			"type": "object",
 			"properties": {
