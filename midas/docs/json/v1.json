@@ -1,155 +1,66 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Could not load file or assembly 'System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)</title>
-        <meta name="viewport" content="width=device-width" />
-        <style>
-         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
-         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
-         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
-         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
-         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
-         pre {font-family:"Consolas","Lucida Console",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}
-         .marker {font-weight: bold; color: black;text-decoration: none;}
-         .version {color: gray;}
-         .error {margin-bottom: 10px;}
-         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }
-         @media screen and (max-width: 639px) {
-          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }
-         }
-         @media screen and (max-width: 479px) {
-          pre { width: 280px; }
-         }
-        </style>
-    </head>
-
-    <body bgcolor="white">
-
-            <span><H1>Server Error in '/' Application.<hr width=100% size=1 color=silver></H1>
-
-            <h2> <i>Could not load file or assembly 'System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)</i> </h2></span>
-
-            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
-
-            <b> Description: </b>An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
-
-            <br><br>
-
-            <b> Exception Details: </b>System.IO.FileLoadException: Could not load file or assembly 'System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)<br><br>
-
-            <b>Source Error:</b> <br><br>
-
-            <table width=100% bgcolor="#ffffcc">
-               <tr>
-                  <td>
-                      <code>
-
-An unhandled exception was generated during the execution of the current web request. Information regarding the origin and location of the exception can be identified using the exception stack trace below.</code>
-
-                  </td>
-               </tr>
-            </table>
-
-            <br>
-
-            <b>Assembly Load Trace:</b> The following information can be helpful to determine why the assembly 'System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' could not be loaded.<br><br>
-
-            <table width=100% bgcolor="#ffffcc">
-               <tr>
-                  <td>
-                      <code><pre>
-
-WRN: Assembly binding logging is turned OFF.
-To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
-Note: There is some performance penalty associated with assembly bind failure logging.
-To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
-</pre></code>
-
-                  </td>
-               </tr>
-            </table>
-
-            <br>
-
-            <b>Stack Trace:</b> <br><br>
-
-            <table width=100% bgcolor="#ffffcc">
-               <tr>
-                  <td>
-                      <code><pre>
-
-[FileLoadException: Could not load file or assembly &#39;System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51&#39; or one of its dependencies. The located assembly&#39;s manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)]
-   System.Reflection.CustomAttribute._CreateCaObject(RuntimeModule pModule, IRuntimeMethodInfo pCtor, Byte** ppBlob, Byte* pEndBlob, Int32* pcNamedArgs) +0
-   System.Reflection.CustomAttribute.CreateCaObject(RuntimeModule module, IRuntimeMethodInfo ctor, IntPtr&amp; blob, IntPtr blobEnd, Int32&amp; namedArgs) +48
-   System.Reflection.CustomAttribute.GetCustomAttributes(RuntimeModule decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes, Boolean isDecoratedTargetSecurityTransparent) +787
-   System.Reflection.CustomAttribute.GetCustomAttributes(RuntimeType type, RuntimeType caType, Boolean inherit) +205
-   System.Configuration.ApplicationSettingsBase.EnsureInitialized() +262
-   System.Configuration.ApplicationSettingsBase.get_Properties() +141
-   System.Configuration.SettingsBase.GetPropertyValueByName(String propertyName) +26
-   System.Configuration.SettingsBase.get_Item(String propertyName) +83
-   System.Configuration.ApplicationSettingsBase.GetPropertyValue(String propertyName) +95
-   System.Configuration.ApplicationSettingsBase.get_Item(String propertyName) +83
-   Roblox.Midas.Api.Properties.Settings.&lt;get_Item&gt;b__3_0(String propName) in C:\code\economy\src\ApiSites\Roblox.Midas.Api\Roblox.Midas.Api\Properties\Settings.cs:20
-   System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory) +87
-   Roblox.Midas.Api.Properties.Settings.get_Item(String propertyName) in C:\code\economy\src\ApiSites\Roblox.Midas.Api\Roblox.Midas.Api\Properties\Settings.cs:20
-   Roblox.Midas.Api.Properties.Settings.get_LogSource() in C:\code\economy\src\ApiSites\Roblox.Midas.Api\Roblox.Midas.Api\Properties\Settings.Designer.cs:85
-   Roblox.Midas.Api.WebApiApplication.get_ApiSiteMetadata() in C:\code\economy\src\ApiSites\Roblox.Midas.Api\Roblox.Midas.Api\Global.asax.cs:99
-   Roblox.Web.WebAPI.Base.BaseWebApiApplication.Application_Start() in C:\code\web-platform\Assemblies\Web\WebAPI\Roblox.Web.WebAPI\Base\BaseWebApiApplication.cs:418
-
-[HttpException (0x80004005): Could not load file or assembly &#39;System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51&#39; or one of its dependencies. The located assembly&#39;s manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)]
-   System.Web.HttpApplicationFactory.EnsureAppStartCalledForIntegratedMode(HttpContext context, HttpApplication app) +517
-   System.Web.HttpApplication.RegisterEventSubscriptionsWithIIS(IntPtr appContext, HttpContext context, MethodInfo[] handlers) +185
-   System.Web.HttpApplication.InitSpecial(HttpApplicationState state, MethodInfo[] handlers, IntPtr appContext, HttpContext context) +168
-   System.Web.HttpApplicationFactory.GetSpecialApplicationInstance(IntPtr appContext, HttpContext context) +277
-   System.Web.Hosting.PipelineRuntime.InitializeApplication(IntPtr appContext) +369
-
-[HttpException (0x80004005): Could not load file or assembly &#39;System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51&#39; or one of its dependencies. The located assembly&#39;s manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)]
-   System.Web.HttpRuntime.FirstRequestInit(HttpContext context) +532
-   System.Web.HttpRuntime.EnsureFirstRequestInit(HttpContext context) +111
-   System.Web.HttpRuntime.ProcessRequestNotificationPrivate(IIS7WorkerRequest wr, HttpContext context) +714
-</pre></code>
-
-                  </td>
-               </tr>
-            </table>
-
-            <br>
-
-            <hr width=100% size=1 color=silver>
-
-            <b>Version Information:</b>&nbsp;Microsoft .NET Framework Version:4.0.30319; ASP.NET Version:4.7.3282.0
-
-            </font>
-
-    </body>
-</html>
-<!-- 
-[FileLoadException]: Could not load file or assembly &#39;System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51&#39; or one of its dependencies. The located assembly&#39;s manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
-   at System.Reflection.CustomAttribute._CreateCaObject(RuntimeModule pModule, IRuntimeMethodInfo pCtor, Byte** ppBlob, Byte* pEndBlob, Int32* pcNamedArgs)
-   at System.Reflection.CustomAttribute.CreateCaObject(RuntimeModule module, IRuntimeMethodInfo ctor, IntPtr& blob, IntPtr blobEnd, Int32& namedArgs)
-   at System.Reflection.CustomAttribute.GetCustomAttributes(RuntimeModule decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes, Boolean isDecoratedTargetSecurityTransparent)
-   at System.Reflection.CustomAttribute.GetCustomAttributes(RuntimeType type, RuntimeType caType, Boolean inherit)
-   at System.Configuration.ApplicationSettingsBase.EnsureInitialized()
-   at System.Configuration.ApplicationSettingsBase.get_Properties()
-   at System.Configuration.SettingsBase.GetPropertyValueByName(String propertyName)
-   at System.Configuration.SettingsBase.get_Item(String propertyName)
-   at System.Configuration.ApplicationSettingsBase.GetPropertyValue(String propertyName)
-   at System.Configuration.ApplicationSettingsBase.get_Item(String propertyName)
-   at Roblox.Midas.Api.Properties.Settings.<get_Item>b__3_0(String propName) in C:\code\economy\src\ApiSites\Roblox.Midas.Api\Roblox.Midas.Api\Properties\Settings.cs:line 20
-   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
-   at Roblox.Midas.Api.Properties.Settings.get_Item(String propertyName) in C:\code\economy\src\ApiSites\Roblox.Midas.Api\Roblox.Midas.Api\Properties\Settings.cs:line 20
-   at Roblox.Midas.Api.Properties.Settings.get_LogSource() in C:\code\economy\src\ApiSites\Roblox.Midas.Api\Roblox.Midas.Api\Properties\Settings.Designer.cs:line 85
-   at Roblox.Midas.Api.WebApiApplication.get_ApiSiteMetadata() in C:\code\economy\src\ApiSites\Roblox.Midas.Api\Roblox.Midas.Api\Global.asax.cs:line 99
-   at Roblox.Web.WebAPI.Base.BaseWebApiApplication.Application_Start() in C:\code\web-platform\Assemblies\Web\WebAPI\Roblox.Web.WebAPI\Base\BaseWebApiApplication.cs:line 418
-[HttpException]: Could not load file or assembly &#39;System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51&#39; or one of its dependencies. The located assembly&#39;s manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
-   at System.Web.HttpApplicationFactory.EnsureAppStartCalledForIntegratedMode(HttpContext context, HttpApplication app)
-   at System.Web.HttpApplication.RegisterEventSubscriptionsWithIIS(IntPtr appContext, HttpContext context, MethodInfo[] handlers)
-   at System.Web.HttpApplication.InitSpecial(HttpApplicationState state, MethodInfo[] handlers, IntPtr appContext, HttpContext context)
-   at System.Web.HttpApplicationFactory.GetSpecialApplicationInstance(IntPtr appContext, HttpContext context)
-   at System.Web.Hosting.PipelineRuntime.InitializeApplication(IntPtr appContext)
-[HttpException]: Could not load file or assembly &#39;System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51&#39; or one of its dependencies. The located assembly&#39;s manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
-   at System.Web.HttpRuntime.FirstRequestInit(HttpContext context)
-   at System.Web.HttpRuntime.EnsureFirstRequestInit(HttpContext context)
-   at System.Web.HttpRuntime.ProcessRequestNotificationPrivate(IIS7WorkerRequest wr, HttpContext context)
---><!-- 
-This error page might contain sensitive information because ASP.NET is configured to show verbose error messages using &lt;customErrors mode="Off"/&gt;. Consider using &lt;customErrors mode="On"/&gt; or &lt;customErrors mode="RemoteOnly"/&gt; in production environments.-->
+{
+	"swagger": "2.0",
+	"info": { "version": "v1", "title": "Files API v1" },
+	"host": "files.api.sitetest1.robloxlabs.com",
+	"schemes": ["http", "https"],
+	"paths": {
+		"/v1/GetUri": {
+			"post": {
+				"tags": ["CSRF"],
+				"summary": "Get the CSRF token based on IP or AuthToken.",
+				"consumes": [],
+				"produces": ["application/json", "text/json"],
+				"parameters": [{
+          "name": "apiKey",
+          "in": "query",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "object"
+        }],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": { "$ref": "#/definitions/Mfd.Files.Api.Models.Response" }
+					}
+				},
+				"properties": {
+					"internal": true,
+					"metricIds": ["Files:getURI"]
+				},
+				"deprecated": false
+			}
+		}
+	},
+	"definitions": {
+		"Mfd.Csrf.Api.Models.Request": {
+			"description": "A model containing information on whether or not the api is up.",
+			"type": "object",
+			"properties": {
+				"message": {
+					"description": "Hash",
+					"type": "string",
+					"example": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+				}
+			}
+		},
+    "Mfd.Files.Api.Models.Response": {
+			"description": "Mirror of System.Web.Http.Results.RedirectResult",
+			"type": "object",
+			"properties": {
+				"Location": {
+					"type": "string",
+					"readonly": true
+				},
+        "Request": {
+					"type": "string",
+					"readonly": true
+				}
+			}
+		}
+	}
+}
