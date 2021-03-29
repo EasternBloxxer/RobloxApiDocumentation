@@ -20,7 +20,7 @@
           "name": "data",
           "in": "body",
           "required": true,
-          "type": "object"
+          "schema": {"$ref": "#/definitions/Mfd.Csrf.Api.Models.Request"}
         }],
 				"responses": {
 					"200": {
