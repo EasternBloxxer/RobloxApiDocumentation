@@ -1,0 +1,61 @@
+{
+	"swagger": "2.0",
+	"info": { "version": "v1", "title": "EphemeralCounters API v1" },
+	"host": "ephemeralcounters.api.roblox.com",
+	"schemes": ["http", "https"],
+	"paths": {
+		"/v1.1/Counters/BatchIncrement?apiKey=76E5A40C-3AE1-4028-9F10-7C62520BD94F": {
+			"post": {
+				"tags": [ "Files" ],
+				"summary": "Get file URL given hash.",
+				"consumes": [],
+				"produces": [ "application/json", "text/json" ],
+				"parameters": [
+					{
+						"name": "data",
+						"in": "body",
+						"required": true,
+						"schema": { "$ref": "#/definitions/Roblox.Files.Service.Models.Request" }
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				},
+				"properties": {
+					"internal": false,
+					"metricIds": [ "EC:batchInc" ]
+				},
+				"deprecated": false
+			}
+		}
+	},
+	"definitions": {
+		"Roblox.Files.Service.Models.Request": {
+			"description": "A model containing stuff.",
+			"type": "object",
+			"properties": {
+				"Counter(REPLACE)": {
+					"description": "Hash",
+					"type": "number",
+					"example": "1"
+				}
+			}
+		},
+    "Roblox.Files.Service.Models.Response": {
+			"description": "Mirror of System.Web.Http.Results.RedirectResult",
+			"type": "object",
+			"properties": {
+				"Location": {
+					"type": "string",
+					"readonly": true
+				},
+        "Request": {
+					"type": "string",
+					"readonly": true
+				}
+			}
+		}
+	}
+}
