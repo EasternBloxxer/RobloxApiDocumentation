@@ -7,7 +7,7 @@
 		"/v1.1/Counters/BatchIncrement?apiKey=76E5A40C-3AE1-4028-9F10-7C62520BD94F": {
 			"post": {
 				"tags": [ "Files" ],
-				"summary": "Get file URL given hash.",
+				"summary": "Batch Inc.",
 				"consumes": [],
 				"produces": [ "application/json", "text/json" ],
 				"parameters": [
