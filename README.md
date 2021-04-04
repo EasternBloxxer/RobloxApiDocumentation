@@ -10,3 +10,6 @@
   Get the browser extension 'CORS Unblock' (you won't have to do this for long)<br/>
   Press the button for the extension to use APIs here. <br/>
   Turn it off to go on normal ROBLOX.<br/>
+
+# Credits
+  h0nda (for saving JSON files, thanks)
