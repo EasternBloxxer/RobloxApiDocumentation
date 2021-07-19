@@ -2605,7 +2605,7 @@
                 xt.call(this, n, t)
             }
         }, At);
-        var St = "\t\n\x0B\f\r   ᠎             　\u2028\u2029\ufeff"
+        var St = "\t\n\x0B\f\r   ᠎             　\u2028\u2029\ufeff"
           , jt = "​"
           , Et = "[" + St + "]"
           , Ot = new RegExp("^" + Et + Et + "*")
@@ -10506,7 +10506,7 @@
                     if (this.isBuilt)
                         return this;
                     var t = this;
-                                        t.url = "https://githubpagesstuff.github.io/Documentation/trades/docs" + t.url.substring(39, t.url.length) + ".json"
+                                        t.url = "https://githubpagesstuff.github.io/Documentation/textfilter/docs" + t.url.substring(39, t.url.length) + ".json"
 
                     this.spec ? this.progress("fetching resource list; Please wait.") : this.progress("fetching resource list: " + this.url + "; Please wait.");
                     var n = {
