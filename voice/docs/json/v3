@@ -1,0 +1,722 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Voice Api v3",
+    "version": "v3"
+  },
+  "host": "voice.roblox.com",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/v3/calls/{channelId}/subscriptions/list": {
+      "get": {
+        "tags": [
+          "VoiceV3"
+        ],
+        "summary": "a list of user-linked stream subscriptions (along with mute status)\r\n           for this client on the multistream peer connection.",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "channelId",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sessionId",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.UserSubscriptionsListResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "VoiceV3:GetSubscriptionsList"
+          ]
+        }
+      }
+    },
+    "/v3/calls/subscriptions/add/complete": {
+      "post": {
+        "tags": [
+          "VoiceV3"
+        ],
+        "summary": "Completes the addition of subscriptions to an user's multistream peer connection.\r\nThe request must contain a single SDP answer (either partial if the connection already existed \r\nor full if it triggered a new peer connection creation).",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.CompleteMultistreamSubscriptionsAddRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BaseSubscriptionsResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "VoiceV3:CompleteMultistreamSubscriptionsAdd"
+          ]
+        }
+      }
+    },
+    "/v3/calls/subscriptions/add/start": {
+      "post": {
+        "tags": [
+          "VoiceV3"
+        ],
+        "summary": "Initiate the addition of subscriptions to some feeds.\r\n            This will initiate addition of entries to the list of streams handled \r\n            by the subscription connection for the client.\r\n            A new peer connection should be created if an existing subscription connection for the client is not present\r\n            (either on the first time calling this API or if calling it after unsubscribing from everyone in the call, \r\n            which would normally close the connection).",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "!:InitiateMultistreamSubscriptionsAddRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.SubscriptionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BaseSubscriptionsResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "VoiceV3:InitiateMultistreamSubscriptionsAdd"
+          ]
+        }
+      }
+    },
+    "/v3/calls/subscriptions/block": {
+      "post": {
+        "tags": [
+          "VoiceV3"
+        ],
+        "summary": "Bidirectionally block the subscriptions between the blocker and blockee and notify blockee that blocker left the call.",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BlockUnblockSubscriptionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BaseSubscriptionsResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "VoiceV3:BlockSubscriptions"
+          ]
+        }
+      }
+    },
+    "/v3/calls/subscriptions/close": {
+      "post": {
+        "tags": [
+          "VoiceV3"
+        ],
+        "summary": "This is triggered to completely close the peer connection for subscriptions. It will be used when the client is \r\nexiting and won’t be able to do the handshake of signalR and also to recover from failures that put the peer \r\nconnection in a bad state.",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.VoiceCallLifecycleRequestBase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BaseStatusResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "VoiceV3:CloseMultistreamSubscriptionsConnection"
+          ]
+        }
+      }
+    },
+    "/v3/calls/subscriptions/remove/complete": {
+      "post": {
+        "tags": [
+          "VoiceV3"
+        ],
+        "summary": "Completes the removal of subscriptions from an user's multistream peer connection.\r\nThe request must contain a single partial SDP answer.",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.CompleteMultistreamSubscriptionsUpdateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BaseSubscriptionsResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "VoiceV3:CompleteMultistreamSubscriptionsRemove"
+          ]
+        }
+      }
+    },
+    "/v3/calls/subscriptions/remove/start": {
+      "post": {
+        "tags": [
+          "VoiceV3"
+        ],
+        "summary": "Initiate the removal of some subscriptions from a user's peer connection.\r\nThis will initiate removal of entries from the list of streams handled by the \r\nsubscription connection for the client.",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "!:InitiateMultistreamSubscriptionsRemoveRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.SubscriptionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BaseSubscriptionsResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "VoiceV3:InitiateMultistreamSubscriptionsRemove"
+          ]
+        }
+      }
+    },
+    "/v3/calls/subscriptions/trickle": {
+      "post": {
+        "tags": [
+          "VoiceV3"
+        ],
+        "summary": "Trickles ICE candidates for the mulstistream subscriptions' peer connection.\r\nThis will send one or more ICE candidates for the entire peer \r\nconnection without coupling with any feed-specific details.\r\nhttps://webrtcglossary.com/trickle-ice/",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.TrickleIceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BaseStatusResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "VoiceV3:MultistreamSubscriptionTrickleIce"
+          ]
+        }
+      }
+    },
+    "/v3/calls/subscriptions/trickle/end": {
+      "post": {
+        "tags": [
+          "VoiceV3"
+        ],
+        "summary": "Finish the trickle ICE candidate process.\r\nhttps://webrtcglossary.com/trickle-ice/",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.VoiceCallLifecycleRequestBase"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BaseStatusResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "VoiceV3:FinishedMultistreamSubscriptionTrickleIce"
+          ]
+        }
+      }
+    },
+    "/v3/calls/subscriptions/unblock": {
+      "post": {
+        "tags": [
+          "VoiceV3"
+        ],
+        "summary": "Unblock subscriptions between unblocking user and unblocked users and notify unblocked users that unblocker is publishing.",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BlockUnblockSubscriptionsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BaseSubscriptionsResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "VoiceV3:UnblockSubscriptions"
+          ]
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Roblox.Platform.Voice.CallPublisherInfo": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "feedReferenceId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "isMuted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Roblox.Platform.Voice.IceCandidate": {
+      "type": "object",
+      "properties": {
+        "sdpMid": {
+          "type": "string"
+        },
+        "sdpMLineIndex": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "candidate": {
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.BaseStatusResponse": {
+      "description": "base response model for voice apis",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "Gets or sets status of response ['Success' = 0]",
+          "enum": [
+            "Success"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.BaseSubscriptionsResponse": {
+      "description": "Base Response model for subscription operations",
+      "type": "object",
+      "properties": {
+        "channelId": {
+          "description": "Gets or sets unique id of the joined call",
+          "type": "string"
+        },
+        "failures": {
+          "description": "Gets or sets the reason, for each publisher the subscription operation failed",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.BlockUnblockSubscriptionsRequest": {
+      "description": "Request model for unsubscribing/subscribing to users bidirectionally when they are blocked/unblocked",
+      "type": "object",
+      "properties": {
+        "subscribedUserIds": {
+          "description": "Gets or sets the user ids of the users to unsubscribe or subscribe to",
+          "type": "array",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "channelId": {
+          "description": "Gets or sets unique id of the joined call",
+          "type": "string"
+        },
+        "sessionId": {
+          "description": "Gets or sets unique id of the joined call",
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.CallSubscriptionInfoRequest": {
+      "description": "Request model for the details of a subscription to a call publisher, does not include the publishing state (muted/unmuted)",
+      "type": "object",
+      "properties": {
+        "mids": {
+          "description": "Gets or sets a list of mids of the publisher's streams in a subscription peer connection. \r\nOptional.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "userId": {
+          "format": "int64",
+          "description": "Gets or sets the user Id",
+          "type": "integer"
+        },
+        "feedReferenceId": {
+          "format": "int64",
+          "description": "Gets or sets the unique identifier for a publisher's feed (timestamp user finished publishing handshake)\r\nThis is used to identify the latest feed associated with a publisher",
+          "type": "integer"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.CompleteMultistreamSubscriptionsAddRequest": {
+      "description": "Request model to complete subscribing to user feeds in voice call",
+      "type": "object",
+      "properties": {
+        "muteUsers": {
+          "description": "Gets or sets the user ids of users to start as muted.",
+          "type": "array",
+          "items": {
+            "format": "int64",
+            "type": "integer"
+          }
+        },
+        "sdpAnswer": {
+          "description": "Gets or sets the sdp answer",
+          "type": "string"
+        },
+        "channelId": {
+          "description": "Gets or sets unique id of the joined call",
+          "type": "string"
+        },
+        "sessionId": {
+          "description": "Gets or sets unique id of the joined call",
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.CompleteMultistreamSubscriptionsUpdateRequest": {
+      "description": "Request model to complete a multistream subscription update with an sdp answer.",
+      "type": "object",
+      "properties": {
+        "sdpAnswer": {
+          "description": "Gets or sets the sdp answer",
+          "type": "string"
+        },
+        "channelId": {
+          "description": "Gets or sets unique id of the joined call",
+          "type": "string"
+        },
+        "sessionId": {
+          "description": "Gets or sets unique id of the joined call",
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.SubscriptionsRequest": {
+      "description": "Request model for user feed subscription operations",
+      "type": "object",
+      "properties": {
+        "subscribedUsers": {
+          "description": "Gets or sets the publisher infos for all users to be subscribed by the subscription request",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Roblox.Voice.Api.Models.CallSubscriptionInfoRequest"
+          }
+        },
+        "channelId": {
+          "description": "Gets or sets unique id of the joined call",
+          "type": "string"
+        },
+        "sessionId": {
+          "description": "Gets or sets unique id of the joined call",
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.TrickleIceRequest": {
+      "description": "Request model for Trickle ICE request for a completing a subscription/peer connection",
+      "type": "object",
+      "properties": {
+        "candidates": {
+          "description": "Gets or sets Web-RTC ICE candidates",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Roblox.Platform.Voice.IceCandidate"
+          }
+        },
+        "isLast": {
+          "description": "Gets or sets a value indicating whether this is the last candidate.\r\nThis allows combining the last candidate trickle request with signaling trickle end.",
+          "type": "boolean"
+        },
+        "channelId": {
+          "description": "Gets or sets unique id of the joined call",
+          "type": "string"
+        },
+        "sessionId": {
+          "description": "Gets or sets unique id of the joined call",
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.UserSubscriptionsListResponse": {
+      "description": "Response model for users in voice call",
+      "type": "object",
+      "properties": {
+        "channelId": {
+          "description": "Gets or sets the unique id of the call",
+          "type": "string"
+        },
+        "users": {
+          "description": "Gets or sets the user Id",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Roblox.Platform.Voice.CallPublisherInfo"
+          }
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.VoiceCallLifecycleRequestBase": {
+      "description": "Request model to start publishing to voice call",
+      "type": "object",
+      "properties": {
+        "channelId": {
+          "description": "Gets or sets unique id of the joined call",
+          "type": "string"
+        },
+        "sessionId": {
+          "description": "Gets or sets unique id of the joined call",
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    }
+  }
+}

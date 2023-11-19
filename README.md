@@ -1,5 +1,5 @@
 # Documentation
-  Unofficial ROBLOX Web API documentation.
+  Unofficial ROBLOX Web API documentation. The new version. (Not done yet as i am busy with other things.)
 
 # What's different?
   Internal APIs (previously undocumented to the public)<br/>
@@ -12,4 +12,4 @@
   Turn it off to go on normal ROBLOX.<br/>
 
 # Credits
-  h0nda (for saving JSON files, thanks)
+  h0nda (for saving previous JSON files, thanks)

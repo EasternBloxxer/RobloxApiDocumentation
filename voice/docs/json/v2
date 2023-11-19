@@ -1,0 +1,1161 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Voice Api v2",
+    "version": "v2"
+  },
+  "host": "voice.roblox.com",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/v2/rcc/canlisten": {
+      "get": {
+        "tags": [
+          "ProtectedVoice"
+        ],
+        "summary": "Returns whether the user provided by the RCC server can listen to anyone in the given call.",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "channelId",
+            "description": "The unique id of the call.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "description": "The id of the user.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.GetUserCanListenInCallResponse"
+            }
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ProtectedVoice:GetUserCanListenInCall"
+          ]
+        }
+      },
+      "post": {
+        "tags": [
+          "ProtectedVoice"
+        ],
+        "summary": "Update whether a user can listen to anyone in a given call or not.",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.UpdateUserCanListenInCallRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BaseStatusResponse"
+            }
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ProtectedVoice:UpdateUserCanListenInCall"
+          ]
+        }
+      }
+    },
+    "/v2/rcc/cantalk": {
+      "get": {
+        "tags": [
+          "ProtectedVoice"
+        ],
+        "summary": "Returns whether the user provided by the RCC server can talk in the given call.",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "channelId",
+            "description": "The unique id of the call.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "userId",
+            "description": "The id of the user.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.GetUserCanTalkInCallResponse"
+            }
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ProtectedVoice:GetUserCanTalkInCall"
+          ]
+        }
+      },
+      "post": {
+        "tags": [
+          "ProtectedVoice"
+        ],
+        "summary": "Update whether a user can talk in a given call or not.",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.UpdateUserCanTalkInCallRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.BaseStatusResponse"
+            }
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ProtectedVoice:UpdateUserCanTalkInCall"
+          ]
+        }
+      }
+    },
+    "/v2/rcc/getroomserver": {
+      "get": {
+        "tags": [
+          "LooselyProtectedVoice"
+        ],
+        "summary": "Returns a room server endpoint to be used by the RCC server",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "placeId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "gameDataCenterId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Client.MediaServerInfo"
+            }
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "LooselyProtectedVoice:GetRoomServer"
+          ]
+        }
+      }
+    },
+    "/v2/rccsettings/universe": {
+      "get": {
+        "tags": [
+          "ProtectedVoice"
+        ],
+        "summary": "Returns whether or not the RCC server's place and it's corresponding universe are enabled for voice.\r\nThe place id will be read from the RCC specific header, which should be part of every http request coming from RCC\r\nand the universe will be automatically detected from this place id.",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Roblox-Place-Id",
+            "description": "The id of the place to check if voice enabled read from the RCC specific request header.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.VoiceSettingsUniverseResponse"
+            }
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ProtectedVoice:GetUniversePlaceVoiceEnabledRccSettings"
+          ]
+        }
+      }
+    },
+    "/v2/rccsettings/user": {
+      "get": {
+        "tags": [
+          "ProtectedVoice"
+        ],
+        "summary": "Returns whether the user provided by the RCC server is enabled for voice.",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userId",
+            "description": "The id of the user.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.VoiceSettingsResponse"
+            }
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ProtectedVoice:GetUserVoiceEnabledRccSettings"
+          ]
+        }
+      }
+    },
+    "/v2/calls/join": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "Joins voice channel for the given token",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.VoiceChannelTokenJoinRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.JoinVoiceChannelResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "Token:JoinChannelFromToken"
+          ]
+        }
+      }
+    },
+    "/v2/rcc/kick": {
+      "post": {
+        "tags": [
+          "ProtectedVoice"
+        ],
+        "summary": "Force a list of users to be disconnected from their current voice calls.",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Roblox-Place-Id",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.KickUsersFromVoiceCallsRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.KickUsersFromVoiceCallsResponse"
+            }
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ProtectedVoice:RccKickUsersFromVoiceCalls"
+          ]
+        }
+      }
+    },
+    "/v2/rcc/recordaddcall": {
+      "post": {
+        "tags": [
+          "LooselyProtectedVoice"
+        ],
+        "summary": "Record Add Call in redis for the current users",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.RecordAddCallRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.RecordAddCallResponse"
+            }
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "LooselyProtectedVoice:RecordAddCall"
+          ]
+        }
+      }
+    },
+    "/v2/rcc/recordplayerjoined": {
+      "post": {
+        "tags": [
+          "LooselyProtectedVoice"
+        ],
+        "summary": "Record Player Joined in redis for the current users",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.RecordPlayerJoinedRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.RecordPlayerJoinedResponse"
+            }
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "LooselyProtectedVoice:RecordPlayerJoined"
+          ]
+        }
+      }
+    },
+    "/v2/rcc/tokens": {
+      "post": {
+        "tags": [
+          "ProtectedVoice"
+        ],
+        "summary": "Creates a list of new signed JWT tokens containing the channel and user details from the request.",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Roblox-Place-Id",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Roblox.Voice.Api.Models.VoiceChannelTokenCreateRequest"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.MultipleVoiceChannelTokenCreateResponse"
+            }
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ProtectedVoice:GenerateMultipleChannelTokens"
+          ]
+        }
+      }
+    },
+    "/v2/test/tokens": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "Creates a new signed JWT token containing the channel and user details from the request.\r\n            \r\nThis is a temporary endpoint for testing the client implementation only and can be removed/disabled at any moment without a warning!\r\nNo production code should rely on this to exist and work.",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.VoiceChannelTestTokenCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.VoiceChannelTokenCreateResponse"
+            }
+          },
+          "401": {
+            "description": "0: Authorization has been denied for this request."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "deprecated": true,
+        "properties": {
+          "internal": true,
+          "obsoleteMessage": null,
+          "metricIds": [
+            "Token:GenerateChannelTestToken"
+          ]
+        }
+      }
+    },
+    "/v2/tokens": {
+      "post": {
+        "tags": [
+          "ProtectedVoice"
+        ],
+        "summary": "Creates a new signed JWT token containing the channel and user details from the request.",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Roblox-Place-Id",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "requestModel",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.VoiceChannelTokenCreateRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Voice.Api.Models.VoiceChannelTokenCreateResponse"
+            }
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ProtectedVoice:GenerateChannelToken"
+          ]
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Google.Protobuf.WellKnownTypes.Timestamp": {
+      "type": "object",
+      "properties": {
+        "Seconds": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "Nanos": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.BaseStatusResponse": {
+      "description": "base response model for voice apis",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "Gets or sets status of response ['Success' = 0]",
+          "enum": [
+            "Success"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.GetUserCanListenInCallResponse": {
+      "description": "Response for getting whether an user can listen to others in a call or not",
+      "type": "object",
+      "properties": {
+        "canListen": {
+          "description": "Gets a boolean indicating whether the user can listen to others in a call or not.",
+          "type": "boolean"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.GetUserCanTalkInCallResponse": {
+      "description": "Response for getting whether an user can talk in a call or not",
+      "type": "object",
+      "properties": {
+        "canTalk": {
+          "description": "Gets a boolean indicating whether the user can talk in a call or not.",
+          "type": "boolean"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.JoinVoiceChannelResponse": {
+      "description": "response model for try join voice channel request",
+      "type": "object",
+      "properties": {
+        "channelId": {
+          "description": "Gets or sets unique id of the joined call",
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.KickUsersFromVoiceCallsRequest": {
+      "description": "Request to force a list of users to leave a call.",
+      "type": "object",
+      "properties": {
+        "requestDictionary": {
+          "description": "Gets or sets the list of users to kick out along with the reason for their removal.",
+          "type": "object",
+          "additionalProperties": {
+            "format": "int32",
+            "description": " ['Invalid' = 0, 'Other' = 1, 'Internal' = 2, 'UserBannedFromVoice' = 3]",
+            "enum": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.KickUsersFromVoiceCallsResponse": {
+      "description": "Response for the operation to kick out some users from their voice calls.",
+      "type": "object",
+      "properties": {
+        "failures": {
+          "description": "Gets or sets a failure description for each users that failed to be kicked out.\r\nOptional.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.MediaServerDto": {
+      "description": "Data Transfer object for Media Server",
+      "type": "object",
+      "properties": {
+        "DatacenterId": {
+          "format": "int32",
+          "description": "Gets or sets room server's data center/POP id",
+          "type": "integer"
+        },
+        "HostIdentifier": {
+          "description": "Gets or sets media server's host identifier",
+          "type": "string"
+        },
+        "PortCount": {
+          "format": "int32",
+          "description": "Gets or sets total number of occupied ports in a media server from the heartbeat",
+          "type": "integer"
+        },
+        "StreamCount": {
+          "format": "int32",
+          "description": "Gets or sets total number of publishing and subscribing streams in a media server from the heartbeat",
+          "type": "integer"
+        },
+        "RoomCount": {
+          "format": "int32",
+          "description": "Gets or sets the number of rooms in the room server From the heartbeat. This value is null for turn servers",
+          "type": "integer"
+        },
+        "Version": {
+          "description": "Gets or sets media server's version from heartbeat",
+          "type": "string"
+        },
+        "DataCenterPop": {
+          "description": "Gets or sets media server's dataCenterPop from heartbeat",
+          "type": "string"
+        },
+        "HostIdentifierEndpoint": {
+          "description": "Gets the full endpoint using the host identifier.",
+          "type": "string",
+          "readOnly": true
+        },
+        "Host": {
+          "type": "string"
+        },
+        "Port": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsSecure": {
+          "description": "Gets or sets if the media server supports secure connection",
+          "type": "boolean"
+        },
+        "ServerHostName": {
+          "description": "Gets or sets the consul name of a room server host.\r\nExample: roblox-voice-roomservice.service.ash1.consul",
+          "type": "string"
+        },
+        "Endpoint": {
+          "description": "Gets media server's Endpoint",
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.MultipleVoiceChannelTokenCreateResponse": {
+      "description": "Response model for serializing a multiple channel token response",
+      "type": "object",
+      "properties": {
+        "tokens": {
+          "description": "Gets or sets the resulting tokens",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Roblox.Voice.Api.Models.VoiceChannelTokenCreateResponse"
+          }
+        },
+        "errors": {
+          "description": "Gets or sets the errors from token generation",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Roblox.Voice.Api.Models.VoiceChannelTokenCreateError"
+          }
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.RecordAddCallRequest": {
+      "description": "Request model for the API to record add call",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "format": "int64",
+          "description": "Gets or sets the user Id for the joining player",
+          "type": "integer"
+        },
+        "participantId": {
+          "format": "int64",
+          "description": "Gets or sets the participant ID returned by the room server.",
+          "type": "integer"
+        },
+        "sessionSecret": {
+          "description": "Gets or sets the session secret returned by the room server.",
+          "type": "string"
+        },
+        "roomId": {
+          "format": "int64",
+          "description": "Gets or sets the room ID returned by the room server.",
+          "type": "integer"
+        },
+        "roomServer": {
+          "$ref": "#/definitions/Roblox.Voice.Api.Models.MediaServerDto"
+        },
+        "channelId": {
+          "description": "Gets or sets unique id of the joined call",
+          "type": "string"
+        },
+        "sessionId": {
+          "description": "Gets or sets unique id of the joined call",
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.RecordAddCallResponse": {
+      "description": "response model for record player joined request",
+      "type": "object",
+      "properties": {
+        "success": {
+          "description": "Whether the operation of recording the player joined request to redis was successful",
+          "type": "boolean"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.RecordPlayerJoinedRequest": {
+      "description": "Request model for the API to record player joined",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "format": "int64",
+          "description": "Gets or sets the user Id for the joining player",
+          "type": "integer"
+        },
+        "participantId": {
+          "format": "int64",
+          "description": "Gets or sets the participant ID returned by the room server.",
+          "type": "integer"
+        },
+        "sessionSecret": {
+          "description": "Gets or sets the session secret returned by the room server.",
+          "type": "string"
+        },
+        "channelId": {
+          "description": "Gets or sets unique id of the joined call",
+          "type": "string"
+        },
+        "sessionId": {
+          "description": "Gets or sets unique id of the joined call",
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.RecordPlayerJoinedResponse": {
+      "description": "response model for record player joined request",
+      "type": "object",
+      "properties": {
+        "success": {
+          "description": "Whether the operation of recording the player joined request to redis was successful",
+          "type": "boolean"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.UpdateUserCanListenInCallRequest": {
+      "description": "Request model for the API to update whether an user can listen to others in a call or not.",
+      "type": "object",
+      "properties": {
+        "canListen": {
+          "description": "Gets or sets a boolean indicating whether the user can listen to others in the call or not.",
+          "type": "boolean"
+        },
+        "channelId": {
+          "description": "Gets or sets the unique id of the call.",
+          "type": "string"
+        },
+        "userId": {
+          "format": "int64",
+          "description": "Gets or sets the userId of the user affected.",
+          "type": "integer"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.UpdateUserCanTalkInCallRequest": {
+      "description": "Request model for the API to update whether an user can talk in a call or not.",
+      "type": "object",
+      "properties": {
+        "canTalk": {
+          "description": "Gets or sets a boolean indicating whether the user can talk in the call or not.",
+          "type": "boolean"
+        },
+        "channelId": {
+          "description": "Gets or sets the unique id of the call.",
+          "type": "string"
+        },
+        "userId": {
+          "format": "int64",
+          "description": "Gets or sets the userId of the user affected.",
+          "type": "integer"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.VoiceChannelTestTokenCreateRequest": {
+      "description": "Request model for the API to create a new channel test token.\r\n            \r\nThis is a temp feature for testing only and it will be removed.\r\nDon't use for any production work!",
+      "type": "object",
+      "properties": {
+        "placeId": {
+          "format": "int64",
+          "description": "Gets or sets the place id for which the token is valid",
+          "type": "integer"
+        },
+        "serverId": {
+          "description": "Gets or sets the server id for which the token is valid",
+          "type": "string"
+        },
+        "dataCenterId": {
+          "format": "int32",
+          "description": "Gets or sets the datacenter id of the game server instance for which the token is valid",
+          "type": "integer"
+        },
+        "userId": {
+          "format": "int64",
+          "description": "Gets or sets the user id for which the token is valid",
+          "type": "integer"
+        },
+        "channelName": {
+          "description": "Gets or sets the name of the channel",
+          "type": "string"
+        },
+        "global": {
+          "description": "Gets or sets a value indicating whether this is a global channel",
+          "type": "boolean"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.VoiceChannelTokenCreateError": {
+      "description": "Response model for a token creation error",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "format": "int64",
+          "description": "Gets or sets the user ID",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Gets or sets the error name",
+          "type": "string"
+        },
+        "message": {
+          "description": "Gets or sets the error message",
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.VoiceChannelTokenCreateRequest": {
+      "description": "Request model for the API to create a new channel token",
+      "type": "object",
+      "properties": {
+        "serverId": {
+          "description": "Gets or sets the server id for which the token is valid",
+          "type": "string"
+        },
+        "dataCenterId": {
+          "format": "int32",
+          "description": "Gets or sets the datacenter id of the game server instance for which the token is valid",
+          "type": "integer"
+        },
+        "userId": {
+          "format": "int64",
+          "description": "Gets or sets the user id for which the token is valid",
+          "type": "integer"
+        },
+        "channelName": {
+          "description": "Gets or sets the name of the channel",
+          "type": "string"
+        },
+        "global": {
+          "description": "Gets or sets a value indicating whether this is a global channel",
+          "type": "boolean"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.VoiceChannelTokenCreateResponse": {
+      "description": "Response model for serializing a channel token response",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "format": "int64",
+          "description": "Gets or sets the user ID",
+          "type": "integer"
+        },
+        "token": {
+          "description": "Gets or sets the resulting token",
+          "type": "string"
+        },
+        "expires": {
+          "format": "int64",
+          "description": "Gets or sets the token's expiry time as a Unix timestamp",
+          "type": "integer"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.VoiceChannelTokenJoinRequest": {
+      "description": "Request model for the API to join a voice channel from a token",
+      "type": "object",
+      "properties": {
+        "token": {
+          "description": "Gets or sets the request token",
+          "type": "string"
+        },
+        "sessionId": {
+          "description": "Gets or sets unique id of the joined call",
+          "maxLength": 64,
+          "minLength": 0,
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.VoiceSettingsResponse": {
+      "description": "Response model for voice settings associated with the user",
+      "type": "object",
+      "properties": {
+        "isVoiceEnabled": {
+          "description": "Gets or sets a value indicating whether this user can use voice chat feature",
+          "type": "boolean"
+        },
+        "isUserOptIn": {
+          "description": "Gets or sets a value indicating whether this user has opt-in to voice chat",
+          "type": "boolean"
+        },
+        "isUserEligible": {
+          "description": "Gets or sets a value indicating whether this user is eligible for voice chat.",
+          "type": "boolean"
+        },
+        "isBanned": {
+          "description": "Gets or sets a value indicating whether this user is banned",
+          "type": "boolean"
+        },
+        "bannedUntil": {
+          "$ref": "#/definitions/Google.Protobuf.WellKnownTypes.Timestamp"
+        },
+        "canVerifyAgeForVoice": {
+          "description": "Gets or sets whether a user can verify their age for voice features.\r\nNote that a user can verify their age anytime, but might not be able\r\nto use voice features afterwards. This flag indicates whether the user\r\ncan use voice features after valid age verification. We should only\r\nnotify users for age verification if this is true and they have not\r\nverified yet.",
+          "type": "boolean"
+        },
+        "isVerifiedForVoice": {
+          "description": "Gets or sets whether a user is verified for voice.\r\nThis could mean they are age verified and old enough,\r\nor they are verified through other means, e.g. renowned\r\nusers. We should only show opt-in toggle if this is true.",
+          "type": "boolean"
+        },
+        "denialReason": {
+          "format": "int32",
+          "description": "Gets or sets a int value indicating why a user is denied from\r\nvoice chat feature. Returns 0 if voice chat is enabled for a user.\r\nSee Roblox.Platform.Voice.UserPermissionDenialReasons\r\nfor reference.",
+          "type": "integer"
+        },
+        "isOptInDisabled": {
+          "description": "If true, the frontend should disable the OptIn toggle if the user is not\r\ncurrently OptIn.",
+          "type": "boolean"
+        },
+        "hasEverOpted": {
+          "description": "Has the user ever opted into or out of voice chat?",
+          "type": "boolean"
+        },
+        "isAvatarVideoEnabled": {
+          "description": "If true, the user should have avatarVideo enabled.\r\n            \r\nThis should be the only field one need to check to decide\r\nwhether the feature should be enabled. It takes both\r\nthe eligibility, optIn status, and other factors (if any)\r\ninto consideration.",
+          "type": "boolean"
+        },
+        "isAvatarVideoOptIn": {
+          "description": "Whether the user is currently optIn into avatar video.\r\n            \r\nNote that optIn by itself doesn't guarantee feature\r\nshould be enabled, because the eligibility criteria\r\nmight change after the user opted in, and thus cause\r\ntheir feature to be disabled while still being optIn.",
+          "type": "boolean"
+        },
+        "isAvatarVideoOptInDisabled": {
+          "description": "If true, the frontend should disable the avatar video OptIn toggle if the user is not\r\ncurrently opted in. This field is for optIn control only.\r\ni.e. we only want to slow down the optIn traffic, but doesn't want to\r\ndisable the feature completely, nor do we want to block people already opted\r\nin from opting out.",
+          "type": "boolean"
+        },
+        "isAvatarVideoEligible": {
+          "description": "If false, the frontend should hide the avatar video OptIn toggle.\r\n            \r\nEligible simply means \"whether the user can use this feature\",\r\nand thus we should provide such users the UI to toggle this feature.\r\nThis alone, however, does not dictate whether the user should have\r\nthis feature enabled.",
+          "type": "boolean"
+        },
+        "hasEverOptedAvatarVideo": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Roblox.Voice.Api.Models.VoiceSettingsUniverseResponse": {
+      "description": "Response model for voice settings associated with a universe/place",
+      "type": "object",
+      "properties": {
+        "isUniverseEnabledForVoice": {
+          "description": "Whether or not the universe is enabled for voice",
+          "type": "boolean"
+        },
+        "isPlaceEnabledForVoice": {
+          "description": "Whether or not the place is enabled for voice",
+          "type": "boolean"
+        },
+        "reasons": {
+          "description": "User-friendly messages describing the reasons for universe and/or place being not enabled for voice",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "isUniverseEnabledForAvatarVideo": {
+          "description": "Whether or not the universe is enabled for avatar video",
+          "type": "boolean"
+        },
+        "isPlaceEnabledForAvatarVideo": {
+          "description": "Whether or not the place is enabled for avatar video",
+          "type": "boolean"
+        }
+      }
+    },
+    "Roblox.Voice.Client.MediaServerInfo": {
+      "type": "object",
+      "properties": {
+        "ip": {
+          "type": "string"
+        },
+        "publicIp": {
+          "type": "string"
+        },
+        "port": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dataCenterId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "IsSecure": {
+          "type": "boolean"
+        },
+        "ServerHostName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
