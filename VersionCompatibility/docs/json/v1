@@ -4,6 +4,10 @@
     "title": "version-compatibility-service",
     "version": "v1"
   },
+  "host": "versioncompatibility.api.roblox.com",
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/CreateOrUpdateAppVersion": {
       "post": {
