@@ -1,0 +1,1642 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "version-compatibility-service",
+    "version": "v1"
+  },
+  "paths": {
+    "/CreateOrUpdateAppVersion": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_CreateOrUpdateAppVersionFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppVersionParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppVersionPayload"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppVersionPayload"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppVersionPayload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CreateOrUpdateSecurityVersion": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_CreateOrUpdateSecurityVersionFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityVersionParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecurityVersionPayload"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecurityVersionPayload"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecurityVersionPayload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CreateOrUpdateClientVersion": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_CreateOrUpdateClientVersionFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientVersionParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionPayload"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionPayload"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionPayload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CreateOrUpdateClientVersionUpload": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_CreateOrUpdateClientVersionUploadFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientVersionUploadParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionUploadPayload"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionUploadPayload"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionUploadPayload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CreateOrUpdateClientVersionUploadWithChannel": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_CreateOrUpdateClientVersionUploadWithChannelFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientVersionUploadParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionUploadPayload"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionUploadPayload"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionUploadPayload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AddClientVersionMd5Hash": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_AddClientVersionMd5HashFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Md5Parameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionMD5HashPayload"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionMD5HashPayload"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionMD5HashPayload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DeleteClientVersionMd5Hash": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_DeleteClientVersionMd5HashFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Md5Parameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AddClientVersionSecurityKey": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_AddClientVersionSecurityKeyFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityKeyParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionSecurityKeyPayload"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionSecurityKeyPayload"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionSecurityKeyPayload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DeleteClientVersionSecurityKey": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_DeleteClientVersionSecurityKeyFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityKeyParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SetCurrentClientVersionUpload": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_SetCurrentClientVersionUploadFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientVersionUploadParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/AddUserToChannel": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_AddUserToChannelFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChannelParamaters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Int64Payload"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Int64Payload"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Int64Payload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DeleteChannelById": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_DeleteChannelByIdFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChannelParamaters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DeleteUserFromChannel": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_DeleteUserFromChannelFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChannelParamaters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/GetOrCreateChannel": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_GetOrCreateChannelFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChannelParamaters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelResponseModelPayload"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelResponseModelPayload"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChannelResponseModelPayload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SetChannelApplicationType": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_SetChannelApplicationTypeFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientVersionUploadParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionUploadResponseModelPayload"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionUploadResponseModelPayload"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientVersionUploadResponseModelPayload"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SetCurrentClientVersionUploadForChannel": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_SetCurrentClientVersionUploadForChannelFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientVersionUploadParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SetRccContainerTagSettings": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_SetRccContainerTagSettingsFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RccContainerTagSettingParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/InsertChannelPermilleRolloutForBinaryType": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_InsertChannelPermilleRolloutForBinaryTypeFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientBinaryTypeChannelAllocationParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/UpdateChannelPermilleRolloutForBinaryType": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_UpdateChannelPermilleRolloutForBinaryTypeFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientBinaryTypeChannelAllocationParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/DeleteClientBinaryTypeChannelAllocationById": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "operationId": "Main_DeleteClientBinaryTypeChannelAllocationByIdFromBody",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientBinaryTypeChannelAllocationParameters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AppVersionParameters": {
+        "type": "object",
+        "properties": {
+          "statusTypeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "platformTypeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "apiKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CacheabilitySettings": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ICacheInfo": {
+        "type": "object",
+        "properties": {
+          "cacheability": {
+            "$ref": "#/components/schemas/CacheabilitySettings"
+          },
+          "entityType": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AppVersion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "platformTypeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusTypeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cacheInfo": {
+            "$ref": "#/components/schemas/ICacheInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AppVersionPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AppVersion"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecurityVersionParameters": {
+        "type": "object",
+        "properties": {
+          "isValid": {
+            "type": "boolean"
+          },
+          "apiKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecurityVersion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "isValid": {
+            "type": "boolean"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cacheInfo": {
+            "$ref": "#/components/schemas/ICacheInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecurityVersionPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SecurityVersion"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientVersionParameters": {
+        "type": "object",
+        "properties": {
+          "isValid": {
+            "type": "boolean"
+          },
+          "apiKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientVersion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "isValid": {
+            "type": "boolean"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cacheInfo": {
+            "$ref": "#/components/schemas/ICacheInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientVersionPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ClientVersion"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientVersionUploadParameters": {
+        "type": "object",
+        "properties": {
+          "clientVersionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "binaryType": {
+            "type": "string",
+            "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "clientVersionUploadId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "channelId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "apiKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientVersionUpload": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "cacheInfo": {
+            "$ref": "#/components/schemas/ICacheInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientVersionUploadPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ClientVersionUpload"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Md5Parameters": {
+        "type": "object",
+        "properties": {
+          "clientVersionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "apiKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientVersionMD5Hash": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "clientVersionID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cacheInfo": {
+            "$ref": "#/components/schemas/ICacheInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientVersionMD5HashPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ClientVersionMD5Hash"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Version": {
+        "type": "object",
+        "properties": {
+          "major": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "minor": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "build": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "majorRevision": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "minorRevision": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringStringIEnumerableKeyValuePair": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpContent": {
+        "type": "object",
+        "properties": {
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringIEnumerableKeyValuePair"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpStatusCode": {
+        "enum": [
+          100,
+          101,
+          102,
+          103,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          226,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          421,
+          422,
+          423,
+          424,
+          426,
+          428,
+          429,
+          431,
+          451,
+          500,
+          501,
+          502,
+          503,
+          504,
+          505,
+          506,
+          507,
+          508,
+          510,
+          511
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "HttpMethod": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpRequestMessage": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "content": {
+            "$ref": "#/components/schemas/HttpContent"
+          },
+          "method": {
+            "$ref": "#/components/schemas/HttpMethod"
+          },
+          "requestUri": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringIEnumerableKeyValuePair"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpResponseMessage": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "content": {
+            "$ref": "#/components/schemas/HttpContent"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "reasonPhrase": {
+            "type": "string",
+            "nullable": true
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringIEnumerableKeyValuePair"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "trailingHeaders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringIEnumerableKeyValuePair"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "requestMessage": {
+            "$ref": "#/components/schemas/HttpRequestMessage"
+          },
+          "isSuccessStatusCode": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecurityKeyParameters": {
+        "type": "object",
+        "properties": {
+          "clientVersionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "apiKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientVersionSecurityKey": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "clientVersionID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cacheInfo": {
+            "$ref": "#/components/schemas/ICacheInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientVersionSecurityKeyPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ClientVersionSecurityKey"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChannelParamaters": {
+        "type": "object",
+        "properties": {
+          "channelId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "channelName": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "apiKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Int64Payload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChannelResponseModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChannelResponseModelPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ChannelResponseModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientVersionUploadResponseModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "clientVersionID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "clientVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientBinaryTypeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "clientBinaryType": {
+            "type": "string",
+            "nullable": true
+          },
+          "isCurrent": {
+            "type": "boolean"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isNext": {
+            "type": "boolean"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "channelId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientVersionUploadResponseModelPayload": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ClientVersionUploadResponseModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RccContainerTagSettingParameters": {
+        "type": "object",
+        "properties": {
+          "groupName": {
+            "type": "string",
+            "nullable": true
+          },
+          "settingName": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "apiKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientBinaryTypeChannelAllocationParameters": {
+        "type": "object",
+        "properties": {
+          "allocationId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "clientBinaryType": {
+            "type": "string",
+            "nullable": true
+          },
+          "channelId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "startPermille": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "endPermille": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "apiKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
