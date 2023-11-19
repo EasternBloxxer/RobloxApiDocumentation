@@ -1,0 +1,106 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Authentication Api v3",
+    "version": "v3"
+  },
+  "host": "auth.roblox.com",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/v3/users/{userId}/two-step-verification/login": {
+      "post": {
+        "tags": [
+          "TwoStepVerificationV3"
+        ],
+        "summary": "Authenticates as a user given a two step verification verification token.",
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "description": "The user ID to authenticate as.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "The Roblox.Authentication.Api.TwoStepVerificationLoginRequest.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.TwoStepVerificationLoginRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.Authentication.Api.Models.TwoStepVerificationV3LoginResponse"
+            }
+          },
+          "400": {
+            "description": "1: User is invalid.\r\n5: Invalid two step verification ticket.\r\n10: Invalid verification token."
+          },
+          "403": {
+            "description": "0: Token Validation Failed"
+          }
+        },
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "TwoStepVerificationV3:TwoStepVerificationV3Login"
+          ]
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Roblox.Authentication.Api.Models.TwoStepVerificationV3LoginResponse": {
+      "description": "The response model of TwoStepVerificationV3Login",
+      "type": "object",
+      "properties": {
+        "identityVerificationLoginTicket": {
+          "description": "IdentityVerificationLoginTicket if applicable",
+          "type": "string"
+        },
+        "accountBlob": {
+          "description": "Metadata associated with the current session",
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.Authentication.Api.TwoStepVerificationLoginRequest": {
+      "description": "Request parameters for logging in via two step verification.",
+      "type": "object",
+      "properties": {
+        "challengeId": {
+          "description": "The two step verification challenge Id.",
+          "type": "string"
+        },
+        "verificationToken": {
+          "description": "The two step verification verification token.",
+          "type": "string"
+        },
+        "rememberDevice": {
+          "description": "Whether or not two step verification should be required from this device for the next 30 days.",
+          "type": "boolean"
+        },
+        "accountBlob": {
+          "description": "Metadata associated with the current session.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
