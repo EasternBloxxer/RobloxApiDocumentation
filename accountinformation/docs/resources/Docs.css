@@ -1,26 +1,18 @@
-﻿/* Hide Swagger stuff */
-#api_info, .footer {
+/* Hide Swagger stuff */
+
+#api_info,
+.footer {
     display: none;
 }
 
-/* Add some padding to the top of the page */
-body {
-    padding-top: 10px;
-}
+/* Add some padding to the top of the page to not obstruct swagger definition selection */
 
-/* copied from api_info CSS */
-#doc_info {
-    padding-bottom: 10px;
-    font-weight: bold;
-    font-size: 25px;
-    line-height: 1;
-    font-family: "Droid Sans", sans-serif;
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
+body {
+    padding-top: 60px;
 }
 
 /* Custom CSS */
+
 .swagger-section #message-bar {
     background-color: #e5effa;
     border: 1px solid #06C;
@@ -38,27 +30,13 @@ body {
     font-size: 14px;
 }
 
-/* allows new lines on:
-    - HTTP response messages 'reason'
-    - Deprecation warning text
-*/
-.endpoint .operations .response-messages td.markdown,
-.operations .operation .deprecation-text {
-    white-space: pre;
-}
-
 .swagger-section.show-warning #doc-warning {
     display: flex;
     min-height: 60px;
 }
 
-.swagger-section.show-warning #doc_info {
-    margin-top: 60px;
-}
-
 #doc-warning {
     display: none;
-    min-height: 0px;
     position: fixed;
     max-width: 960px;
     flex-direction: column;
