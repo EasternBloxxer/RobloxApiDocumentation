@@ -1,0 +1,321 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "ClientSettings Api v1",
+    "version": "v1"
+  },
+  "host": "clientsettings.roblox.com",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/v1/client-version/{binaryType}": {
+      "get": {
+        "tags": [
+          "VersionCheck"
+        ],
+        "summary": "Get client version information for specific binary type",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "binaryType",
+            "description": "Platform(WindowsPlayer, WindowsStudio, MacPlayer or MacStudio) for which we want the latest version",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.ClientVersionResponse"
+            }
+          }
+        },
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VersionCheck:GetClientVersion"
+          ]
+        }
+      }
+    },
+    "/v1/installer-cdns": {
+      "get": {
+        "tags": [
+          "Cdn"
+        ],
+        "summary": "Get information about which CDNs to use for installation.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "Cdn:GetInstallerCdns"
+          ]
+        }
+      }
+    },
+    "/v1/mobile-client-version": {
+      "get": {
+        "tags": [
+          "VersionCheck"
+        ],
+        "summary": "Get mobile client version information based on app version parameter",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "appVersion",
+            "description": "AppiOSV2.13, AppVersioniOS2.0.1, etc",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.MobileClientVersionResponse"
+            }
+          },
+          "400": {
+            "description": "2: Invalid binaryType."
+          }
+        },
+        "properties": {
+          "internal": false,
+          "metricIds": [
+            "VersionCheck:MobileGetClientVersion"
+          ]
+        }
+      }
+    },
+    "/v1/settings/application": {
+      "get": {
+        "tags": [
+          "ClientApplicationSettings"
+        ],
+        "summary": "Returns the complete settings dictionary for a Roblox client application.",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "applicationName",
+            "description": "The name of the client application.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "True-Client-IP",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.ClientApplicationSettingsResponse"
+            }
+          },
+          "400": {
+            "description": "1: The application name is invalid."
+          },
+          "403": {
+            "description": "1: The application name is invalid."
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ClientApplicationSettings:GetClientApplicationSettings"
+          ]
+        }
+      }
+    },
+    "/v1/settings/gameserver": {
+      "get": {
+        "tags": [
+          "ClientApplicationSettings"
+        ],
+        "summary": "Returns game server settings to requests from RCC game servers.",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.ClientApplicationSettingsResponse"
+            }
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ClientApplicationSettings:GetGameserverSettings"
+          ]
+        }
+      }
+    },
+    "/v1/settings/secured-settings": {
+      "get": {
+        "tags": [
+          "ClientApplicationSettings"
+        ],
+        "summary": "Returns the complete settings dictionary for a RCC-only Roblox client application.",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "applicationName",
+            "description": "The name of the client application.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "Roblox-Api-Key",
+            "description": "API Key for request",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.ClientApplicationSettingsResponse"
+            }
+          },
+          "400": {
+            "description": "1: The application name is invalid."
+          },
+          "403": {
+            "description": "3: The api key is invalid.\r\n4: The Ip address is invalid."
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ClientApplicationSettings:GetRccOnlyClientApplicationSettings"
+          ]
+        }
+      }
+    },
+    "/v1/settings/secured-settings-internal": {
+      "get": {
+        "tags": [
+          "ClientApplicationSettings"
+        ],
+        "summary": "Returns the complete settings dictionary for a Roblox client application for internal dev use only.",
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "applicationName",
+            "description": "The name of the client application.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "header",
+            "name": "Roblox-Api-Key",
+            "description": "API Key for request",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Roblox.ClientSettings.Api.Models.Response.ClientApplicationSettingsResponse"
+            }
+          },
+          "400": {
+            "description": "1: The application name is invalid."
+          },
+          "403": {
+            "description": "3: The api key is invalid.\r\n4: The Ip address is invalid."
+          }
+        },
+        "properties": {
+          "internal": true,
+          "metricIds": [
+            "ClientApplicationSettings:GetClientApplicationSettingsInternalOnly"
+          ]
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Roblox.ClientSettings.Api.Models.Response.ClientApplicationSettingsResponse": {
+      "type": "object",
+      "properties": {
+        "applicationSettings": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "Roblox.ClientSettings.Api.Models.Response.ClientVersionResponse": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "clientVersionUpload": {
+          "type": "string"
+        },
+        "bootstrapperVersion": {
+          "type": "string"
+        },
+        "nextClientVersionUpload": {
+          "type": "string"
+        },
+        "nextClientVersion": {
+          "type": "string"
+        }
+      }
+    },
+    "Roblox.ClientSettings.Api.Models.Response.MobileClientVersionResponse": {
+      "type": "object",
+      "properties": {
+        "activeVersion": {
+          "type": "string"
+        },
+        "upgradeSource": {
+          "type": "string"
+        },
+        "MD5Sum": {
+          "type": "string"
+        },
+        "data": { }
+      }
+    }
+  }
+}
