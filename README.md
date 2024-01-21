@@ -21,3 +21,4 @@
 # Credits
   h0nda (extracted them somewhere around late 2020 or early 2021, he saved the internal docs before it got closed and then proceeded to leak it, thanks G)\
   EasternBloxxer (grabbed a portion of the internal documents during july 2023, but only 26 internal versions out of 67 available documentation versions were actually obtained)
+  idkwhatnametoget helped me (eastern) with above and probably was the one to find out about ashburn and the internal docs being public on there (I cant remember ):)
