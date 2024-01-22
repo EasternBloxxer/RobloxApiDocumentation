@@ -10506,7 +10506,7 @@
                     if (this.isBuilt)
                         return this;
                     var t = this;
-                                        t.url = "https://githubpagesstuff.github.io/Documentation/publish/docs" + t.url.substring(39, t.url.length) + ".json"
+                                        t.url = "https://easternbloxxer.github.io/RobloxApiDocumentation/publish/docs" + t.url.substring(39, t.url.length) + ".json"
 
                     this.spec ? this.progress("fetching resource list; Please wait.") : this.progress("fetching resource list: " + this.url + "; Please wait.");
                     var n = {
