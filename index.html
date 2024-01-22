@@ -20,16 +20,28 @@
 
   </style>
   <body>
-    <h1>Unofficial ROBLOX Web API Documentation</h1>
-    <h2>What's Different?</h2>
-    <p>This is basically the same thing as the one uploaded by GithubPagesStuff (original repo below) but with newer docs obtained from Ashburn.</p>
-    <p>Internal APIs (previously undocumented to the public), Backend APIs (previously completely undocumented, even to ROBLOX employees), and overall worse web design. <i>Sorry.</i></p>
-    <h2>How to Use?</h2>
+    <h1>How to Use?</h1>
     <ol>
-      <li>Get the browser extension 'CORS Unblock' (you won't have to do this for long)</li>
-      <li>Press the button for the extension to use APIs here.</li>
-      <li>Turn it off to go on normal ROBLOX.</li>
+      <li>(Recommended for the main site)<br>
+         Get the browser extension '<a href="https://chromewebstore.google.com/detail/tweak-mock-and-modify-htt/feahianecghpnipmhphmfgmpdodhcapi">tweak: mock and modify HTTP requests</a>' (If you're not on chrome go to <a href="https://tweak-extension.com/">this link</a> and click your browser icon. That's the official extension for the browser you're using. If it's not on there port it yourself or make sure to not download loggers)<br>
+         Pin the extension (or don't but I prefer it as it's much easier) and click on it. You can unpin it later as this isn't required<br>
+         For the URL you want to get the Roblox URL for whatever documentation you're looking at and just add /docs/json/{version} at the end of the link (with version obviously being v1 v2 v3 or whatever it says the version is inside of the docs json.)<br>
+         Leave everything else be and now copy everything inside of the internal version for that api and paste it in the textbox below the orange "Response payload" button.<br>
+         Now for it to actually work press the third button on the top left and it should become a square, once done refresh the page and boom it includes everything in the internal version.<br>
+         Note: Please be aware that you have to be on the page/tab of where the swagger api documentation is when turning it on for it to actually work because the extension be built different and only works for that one tab<br>
+      </li>
+      <li>(Recommended for localhost)<br>
+        Get the browser extension '<a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino">CORS Unblock</a>' (Make sure it's the official extension. Other official browser extensions can be found from the README <a href="https://github.com/balvin-perrie/Access-Control-Allow-Origin---Unblock">here</a>)<br>
+        Press the extension icon for the extension to use any of the APIs here.<br>
+        Note: Make sure to turn it off before going on the Roblox site, cuz it messes around with requests which can break your site.
+      </li>
     </ol>
+    
+    <h1>Credits</h1>
+    <p>h0nda (extracted them somewhere around late 2020 or early 2021, he saved the internal docs before it got closed and then proceeded to leak it, thanks G)<br>
+    EasternBloxxer (grabbed a portion of the internal documents during july 2023, but only 26 internal versions out of 67 available documentation versions were actually obtained)<br>
+    idkwhatnametoget helped me (eastern) with above and probably was the one to find out about ashburn and the internal docs being public on there (I cant remember ):</p>
+    
     <h2>Documentation Pages</h2>
     <ul>
       <li><a href="abtesting/docs.html">A/B Testing</a></li>
