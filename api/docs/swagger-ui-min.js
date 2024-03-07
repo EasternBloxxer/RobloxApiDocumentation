@@ -2605,7 +2605,7 @@
                 xt.call(this, n, t)
             }
         }, At);
-        var St = "\t\n\x0B\f\r   ᠎             　\u2028\u2029\ufeff"
+        var St = "\t\n\x0B\f\r   ᠎             　\u2028\u2029\ufeff"
           , jt = "​"
           , Et = "[" + St + "]"
           , Ot = new RegExp("^" + Et + Et + "*")
@@ -6246,7 +6246,7 @@
                     natural: "♮",
                     naturals: "ℕ",
                     natur: "♮",
-                    nbsp: " ",
+                    nbsp: " ",
                     nbump: "≎̸",
                     nbumpe: "≏̸",
                     ncap: "⩃",
@@ -6324,7 +6324,7 @@
                     nLtv: "≪̸",
                     nmid: "∤",
                     NoBreak: "⁠",
-                    NonBreakingSpace: " ",
+                    NonBreakingSpace: " ",
                     nopf: "𝕟",
                     Nopf: "ℕ",
                     Not: "⫬",
@@ -7354,7 +7354,7 @@
                     macr: "¯",
                     micro: "µ",
                     middot: "·",
-                    nbsp: " ",
+                    nbsp: " ",
                     not: "¬",
                     Ntilde: "Ñ",
                     ntilde: "ñ",
@@ -10506,7 +10506,7 @@
                     if (this.isBuilt)
                         return this;
                     var t = this;
-                                        t.url = "https://easternbloxxer.github.io/RobloxApiDocumentation/api/docs" + t.url.substring(39, t.url.length) + ".json"
+                                        t.url = "https://githubpagesstuff.github.io/Documentation/api/docs" + t.url.substring(39, t.url.length) + ".json"
 
                     this.spec ? this.progress("fetching resource list; Please wait.") : this.progress("fetching resource list: " + this.url + "; Please wait.");
                     var n = {
@@ -14969,7 +14969,7 @@
                     return 48 <= e && e <= 57 ? e - 48 : -1
                 }
                 function c(e) {
-                    return 48 === e ? "\0" : 97 === e ? "" : 98 === e ? "\b" : 116 === e ? "\t" : 9 === e ? "\t" : 110 === e ? "\n" : 118 === e ? "\x0B" : 102 === e ? "\f" : 114 === e ? "\r" : 101 === e ? "" : 32 === e ? " " : 34 === e ? '"' : 47 === e ? "/" : 92 === e ? "\\" : 78 === e ? "" : 95 === e ? " " : 76 === e ? "\u2028" : 80 === e ? "\u2029" : ""
+                    return 48 === e ? "\0" : 97 === e ? "" : 98 === e ? "\b" : 116 === e ? "\t" : 9 === e ? "\t" : 110 === e ? "\n" : 118 === e ? "\x0B" : 102 === e ? "\f" : 114 === e ? "\r" : 101 === e ? "" : 32 === e ? " " : 34 === e ? '"' : 47 === e ? "/" : 92 === e ? "\\" : 78 === e ? "" : 95 === e ? " " : 76 === e ? "\u2028" : 80 === e ? "\u2029" : ""
                 }
                 function p(e) {
                     return e <= 65535 ? String.fromCharCode(e) : String.fromCharCode((e - 65536 >> 10) + 55296, (e - 65536 & 1023) + 56320)
