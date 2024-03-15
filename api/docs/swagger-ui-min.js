@@ -10506,9 +10506,10 @@
                     if (this.isBuilt)
                         return this;
                     var t = this;
-                    
-                    t.url = "https://easternbloxxer.github.io/RobloxApiDocumentation/api/docs/" + t.url + ".json";
 
+                        // To whoever wrote the original code. Go to hell.
+                        // I am too tired and lazy to figure out whatever this was for
+                        // Fuck you nsg
                     this.spec ? this.progress("fetching resource list; Please wait.") : this.progress("fetching resource list: " + this.url + "; Please wait.");
                     var n = {
                         useJQuery: this.useJQuery,
