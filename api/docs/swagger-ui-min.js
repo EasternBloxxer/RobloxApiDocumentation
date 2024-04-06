@@ -10506,10 +10506,10 @@
                     if (this.isBuilt)
                         return this;
                     var t = this;
-
-                        // To whoever wrote the original code. Go to hell.
-                        // I am too tired and lazy to figure out whatever this was for
-                        // Fuck you nsg
+                    if (t.url) {
+                        var apiUrl = t.url.substring(0, t.url.lastIndexOf("/"));
+                        t.url = apiUrl + "/api" + t.url.substring(apiUrl.length);
+                    }
                     this.spec ? this.progress("fetching resource list; Please wait.") : this.progress("fetching resource list: " + this.url + "; Please wait.");
                     var n = {
                         useJQuery: this.useJQuery,
