@@ -10507,8 +10507,7 @@
                         return this;
                     var t = this;
 
-                    t.url = "https://apidocs.sixteensrc.zip/api/docs" + t.url.substring(40, t.url.length) + ".json"
-
+      
                     this.spec ? this.progress("fetching resource list; Please wait.") : this.progress("fetching resource list: " + this.url + "; Please wait.");
                     var n = {
                         useJQuery: this.useJQuery,
