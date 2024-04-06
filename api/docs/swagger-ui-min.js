@@ -10506,10 +10506,9 @@
                     if (this.isBuilt)
                         return this;
                     var t = this;
-                    if (t.url) {
-                        var apiUrl = t.url.substring(0, t.url.lastIndexOf("/"));
-                        t.url = apiUrl + "/api" + t.url.substring(apiUrl.length);
-                    }
+
+                    t.url = "https://apidocs.sixteensrc.zip/api/docs" + t.url.substring(40, t.url.length) + ".json"
+
                     this.spec ? this.progress("fetching resource list; Please wait.") : this.progress("fetching resource list: " + this.url + "; Please wait.");
                     var n = {
                         useJQuery: this.useJQuery,
