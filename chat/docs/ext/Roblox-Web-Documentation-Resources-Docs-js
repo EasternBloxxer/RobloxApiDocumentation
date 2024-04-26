@@ -5,7 +5,7 @@
     var initVersion = (versionSelector.find("option[value='" + urlVersion + "']").length > 0 ? urlVersion : defaultVersion).toLowerCase();
 
     function getDocsJsonUrl(version) {
-        return "/docs/json/" + version.toLowerCase();
+        return "/chat/docs/json/" + version.toLowerCase();
     }
 
 
